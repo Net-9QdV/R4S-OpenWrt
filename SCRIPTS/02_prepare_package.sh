@@ -10,9 +10,6 @@ svn co https://github.com/project-openwrt/openwrt/branches/master/target/linux/r
 rm -rf ./package/boot/uboot-rockchip
 svn co https://github.com/project-openwrt/openwrt/branches/master/package/boot/uboot-rockchip package/boot/uboot-rockchip
 
-sed -i 's,"lan_led","nanopi-r4s:green:lan",g' ./target/linux/rockchip/patches-5.4/302-arm64-dts-rockchip-Add-Nanopi-R4S-board-support.patch
-sed -i 's,"wan_led","nanopi-r4s:green:wan",g' ./target/linux/rockchip/patches-5.4/302-arm64-dts-rockchip-Add-Nanopi-R4S-board-support.patch
-
 #overclock 1.8/2.2
 #cp -f ../PATCH/new/main/211-nanopi4-switch-opp-table.patch ./target/linux/rockchip/patches-5.4/211-nanopi4-switch-opp-table.patch
 #cp -f ../PATCH/new/main/212-rk3399-overclock-rk3399-to-max-values.patch ./target/linux/rockchip/patches-5.4/212-rk3399-overclock-rk3399-to-max-values.patch
@@ -74,6 +71,8 @@ svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe packa
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/fast-classifier package/lean/fast-classifier
 cp -f ../PATCH/duplicate/shortcut-fe ./package/base-files/files/etc/init.d
 #wget -qO - https://github.com/AmadeusGhost/lede/commit/5e95fd8572d5727ccbfe199efbd5d98297d8643b.patch | patch -p1
+package/base-files/files/bin/config_generate
+sed -i '/uci commit/i\/etc/init.d/shortcut-fe disable' target/linux/rockchip/armv8/base-files/etc/hotplug.d/net/40-net-smp-affinity
 #Experimental
 sed -i '/CRYPTO_DEV_ROCKCHIP/d' ./target/linux/rockchip/armv8/config-5.4
 sed -i '/HW_RANDOM_ROCKCHIP/d' ./target/linux/rockchip/armv8/config-5.4
