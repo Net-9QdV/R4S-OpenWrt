@@ -293,6 +293,7 @@ ln -sf ../../../feeds/packages/utils/docker-compose ./package/feeds/packages/doc
 svn co https://github.com/openwrt/packages/trunk/utils/docker feeds/packages/utils/docker
 ln -sf ../../../feeds/packages/utils/docker ./package/feeds/packages/docker
 svn co https://github.com/openwrt/packages/trunk/utils/dockerd feeds/packages/utils/dockerd
+sed -i 's,default n,default y,g' feeds/packages/utils/dockerd/Config.in
 ln -sf ../../../feeds/packages/utils/dockerd ./package/feeds/packages/dockerd
 svn co https://github.com/openwrt/packages/trunk/utils/cgroupfs-mount feeds/packages/utils/cgroupfs-mount
 ln -sf ../../../feeds/packages/utils/cgroupfs-mount ./package/feeds/packages/cgroupfs-mount
