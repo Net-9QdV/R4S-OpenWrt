@@ -4,7 +4,7 @@ CONFIG_TARGET_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=y
 CONFIG_TARGET_ROOTFS_PARTSIZE=960
 
 CONFIG_DEVEL=y
-CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves -fno-plt -ftree-vectorize -ffast-math"
+CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves -fno-plt -ftree-vectorize -ffast-math -funsafe-math-optimizations"
 CONFIG_TARGET_OPTIONS=y
 CONFIG_TARGET_OPTIMIZATION="-O3 -pipe -mlittle-endian -mabi=lp64 -march=armv8-a+crypto+crc -mtune=cortex-a72.cortex-a53 -mfpu=neon-vfpv4 -mfloat-abi=hard"
 
